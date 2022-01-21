@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
+    <script defer src="./js/script.js"></script>
     <title>Fighters Countdown</title>
   </head>
   <body>
@@ -30,8 +31,8 @@
                   />
                 </div>
                 <div class="countdown-numbers">
-                  <span class="countdown-number text-effect">0</span>
-                  <span class="countdown-number text-effect">0</span>
+                  <span id="day01" class="countdown-number text-effect">0</span>
+                  <span id="day02" class="countdown-number text-effect">0</span>
                 </div>
               </div>
               <div class="countdown-unit text-effect">DAY</div>
@@ -51,8 +52,12 @@
                   />
                 </div>
                 <div class="countdown-numbers">
-                  <span class="countdown-number text-effect">0</span>
-                  <span class="countdown-number text-effect">0</span>
+                  <span id="hour01" class="countdown-number text-effect"
+                    >0</span
+                  >
+                  <span id="hour02" class="countdown-number text-effect"
+                    >0</span
+                  >
                 </div>
               </div>
               <div class="countdown-unit text-effect">HOUR</div>
@@ -72,8 +77,15 @@
                   />
                 </div>
                 <div class="countdown-numbers">
-                  <span class="countdown-number text-effect">0</span>
-                  <span class="countdown-number text-effect">0</span>
+                  <span
+                    id="minute01"
+                    id="minute01"
+                    class="countdown-number text-effect"
+                    >0</span
+                  >
+                  <span id="minute02" class="countdown-number text-effect"
+                    >0</span
+                  >
                 </div>
               </div>
               <div class="countdown-unit text-effect">MIN</div>
@@ -93,8 +105,12 @@
                   />
                 </div>
                 <div class="countdown-numbers">
-                  <span class="countdown-number text-effect">0</span>
-                  <span class="countdown-number text-effect">0</span>
+                  <span id="second01" class="countdown-number text-effect"
+                    >0</span
+                  >
+                  <span id="second02" class="countdown-number text-effect"
+                    >0</span
+                  >
                 </div>
               </div>
               <div class="countdown-unit text-effect">SEC</div>
@@ -103,12 +119,14 @@
         </div>
         <div class="date">
           <p class="text-effect">
-            <span>Until</span> 2022 / 01 / 01 <span>SAT</span>
+            <span class="small">Until</span>
+            <span id="target-date">2022/01/01</span>
+            <span id="day-of-the-week" class="day-of-the-week small">SAT</span>
           </p>
         </div>
-        <button type="button" class="btn">
+        <a href="#" class="btn">
           <span>To Official Site TOP</span>
-        </button>
+        </a>
       </div>
     </div>
   </body>
