@@ -1,4 +1,4 @@
-const container = document.querySelector('.container');
+const content = document.querySelector('.content');
 const day01 = document.getElementById('day01');
 const day02 = document.getElementById('day02');
 const hour01 = document.getElementById('hour01');
@@ -9,7 +9,6 @@ const second01 = document.getElementById('second01');
 const second02 = document.getElementById('second02');
 const dateText = document.getElementById('date-text');
 const targetDay = document.getElementById('target-day');
-const dateContent = document.querySelectorAll('#date p span');
 const dayOfTheWeek = document.getElementById('day-of-the-week');
 const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
@@ -87,7 +86,7 @@ const setRamdomCounter = () => {
 };
 
 const initialLoading = () => {
-  window.onload = container.classList.add('loaded');
+  window.onload = content.classList.add('loaded');
 };
 
 const run = () => {
