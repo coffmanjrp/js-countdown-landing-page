@@ -158,3 +158,22 @@ body {
 }
 
 @import 'keyframes';
+
+@media (max-width: 425px) {
+  .title {
+    width: 100%;
+  }
+  .countdown-base {
+    opacity: 0;
+  }
+
+  .countdown-numbers {
+    .countdown-number {
+      font-size: 6rem;
+    }
+  }
+
+  .countdown-unit {
+    font-size: 2rem;
+  }
+}

@@ -8,6 +8,7 @@ const second01 = document.getElementById('second01');
 const second02 = document.getElementById('second02');
 const targetDay = document.getElementById('target-day');
 const dayOfTheWeek = document.getElementById('day-of-the-week');
+const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 const getTargetDate = () => {
   const date = new Date();
@@ -25,7 +26,6 @@ const getTargetDate = () => {
 
   const targetDate = `${getCurrentYear}/${targetMonth}/01`;
   const getDayOfTheWeek = new Date(targetDate).getDay();
-  const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
   targetDay.innerHTML = targetDate;
   dayOfTheWeek.innerHTML = days[getDayOfTheWeek];
@@ -58,5 +58,31 @@ const setCountdown = () => {
   getTimeElement(second01, second02, seconds);
 };
 
-getTargetDate();
-setInterval(setCountdown, 1000);
+const getRandomCounter = (el) => {
+  const randomCounter = Math.floor(Math.random() * 10);
+  el.innerHTML = randomCounter.toString();
+};
+
+const setRamdomCounter = () => {
+  const elements = [
+    day01,
+    day02,
+    hour01,
+    hour02,
+    minute01,
+    minute02,
+    second01,
+    second02,
+  ];
+
+  elements.forEach((el) => getRandomCounter(el));
+};
+
+const run = () => {
+  getTargetDate();
+  const randomCounter = setInterval(setRamdomCounter, 100);
+  setTimeout(() => clearInterval(randomCounter), 2000);
+  setInterval(setCountdown, 1000);
+};
+
+run();
