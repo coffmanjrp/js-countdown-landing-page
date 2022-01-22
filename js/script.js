@@ -1,3 +1,4 @@
+const container = document.querySelector('.container');
 const day01 = document.getElementById('day01');
 const day02 = document.getElementById('day02');
 const hour01 = document.getElementById('hour01');
@@ -9,6 +10,10 @@ const second02 = document.getElementById('second02');
 const targetDay = document.getElementById('target-day');
 const dayOfTheWeek = document.getElementById('day-of-the-week');
 const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+const initialLoading = () => {
+  window.onload = container.classList.add('loaded');
+};
 
 const getTargetDate = () => {
   const date = new Date();
@@ -79,6 +84,7 @@ const setRamdomCounter = () => {
 };
 
 const run = () => {
+  initialLoading();
   getTargetDate();
   const randomCounter = setInterval(setRamdomCounter, 100);
   setTimeout(() => clearInterval(randomCounter), 2000);
