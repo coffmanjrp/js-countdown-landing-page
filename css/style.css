@@ -147,6 +147,7 @@ body {
 }
 
 .date {
+  position: relative;
   display: block;
   margin: 0 auto 3.75rem;
 }
@@ -159,12 +160,41 @@ body {
   text-align: center;
 }
 
-.date p .small {
-  font-size: 0.7em;
+.date p .target-day::before {
+  top: 0.5em;
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(20%, rgba(255, 255, 255, 0)), to(white));
+  -webkit-mask-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 20%, white);
+          mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(20%, rgba(255, 255, 255, 0)), to(white));
+          mask-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 20%, white);
+  mask-mode: alpha;
 }
 
 .date p .day-of-the-week {
   text-transform: uppercase;
+}
+
+.date p .day-of-the-week,
+.date p .date-text {
+  font-size: 0.7em;
+}
+
+.date p .day-of-the-week::before,
+.date p .date-text::before {
+  top: 0.79em;
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(20%, rgba(255, 255, 255, 0)), to(white));
+  -webkit-mask-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 20%, white);
+          mask-image: -webkit-gradient(linear, left top, left bottom, color-stop(20%, rgba(255, 255, 255, 0)), to(white));
+          mask-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 20%, white);
+  mask-mode: alpha;
+}
+
+.date p span::before {
+  content: attr(data-date);
+  position: absolute;
+  color: inherit;
+  opacity: 0.5;
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
 }
 
 .btn {
@@ -1374,6 +1404,9 @@ body {
   .title {
     width: 100%;
   }
+  .title h1 {
+    font-size: 3.5rem;
+  }
   .countdown-base {
     opacity: 0;
   }
@@ -1382,5 +1415,12 @@ body {
   }
   .countdown-unit {
     font-size: 2rem;
+  }
+  .btn {
+    width: 240px;
+    font-size: 1rem;
+  }
+  .btn span {
+    background-size: 8px auto;
   }
 }

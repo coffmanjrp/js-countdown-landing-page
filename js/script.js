@@ -7,13 +7,11 @@ const minute01 = document.getElementById('minute01');
 const minute02 = document.getElementById('minute02');
 const second01 = document.getElementById('second01');
 const second02 = document.getElementById('second02');
+const dateText = document.getElementById('date-text');
 const targetDay = document.getElementById('target-day');
+const dateContent = document.querySelectorAll('#date p span');
 const dayOfTheWeek = document.getElementById('day-of-the-week');
 const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-
-const initialLoading = () => {
-  window.onload = container.classList.add('loaded');
-};
 
 const getTargetDate = () => {
   const date = new Date();
@@ -34,6 +32,11 @@ const getTargetDate = () => {
 
   targetDay.innerHTML = targetDate;
   dayOfTheWeek.innerHTML = days[getDayOfTheWeek];
+
+  // Set attributes for text reflect effect
+  dateText.setAttribute('data-date', dateText.textContent);
+  targetDay.setAttribute('data-date', targetDate);
+  dayOfTheWeek.setAttribute('data-date', days[getDayOfTheWeek]);
 
   return new Date(targetDate);
 };
@@ -81,6 +84,10 @@ const setRamdomCounter = () => {
   ];
 
   elements.forEach((el) => getRandomCounter(el));
+};
+
+const initialLoading = () => {
+  window.onload = container.classList.add('loaded');
 };
 
 const run = () => {

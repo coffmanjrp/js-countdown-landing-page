@@ -119,6 +119,7 @@ body {
 }
 
 .date {
+  position: relative;
   display: block;
   margin: 0 auto 3.75rem;
   p {
@@ -127,11 +128,39 @@ body {
     font-weight: 500;
     letter-spacing: 0.1rem;
     text-align: center;
-    .small {
-      font-size: 0.7em;
+    .target-day {
+      &::before {
+        top: 0.5em;
+        mask-image: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0) 20%,
+          rgba(255, 255, 255, 1)
+        );
+        mask-mode: alpha;
+      }
     }
     .day-of-the-week {
       text-transform: uppercase;
+    }
+    .day-of-the-week,
+    .date-text {
+      font-size: 0.7em;
+      &::before {
+        top: 0.79em;
+        mask-image: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0) 20%,
+          rgba(255, 255, 255, 1)
+        );
+        mask-mode: alpha;
+      }
+    }
+    span::before {
+      content: attr(data-date);
+      position: absolute;
+      color: inherit;
+      opacity: 0.5;
+      transform: rotateX(180deg);
     }
   }
 }
@@ -167,6 +196,9 @@ body {
 @media (max-width: 425px) {
   .title {
     width: 100%;
+    h1 {
+      font-size: 3.5rem;
+    }
   }
   .countdown-base {
     opacity: 0;
@@ -180,5 +212,13 @@ body {
 
   .countdown-unit {
     font-size: 2rem;
+  }
+
+  .btn {
+    width: 240px;
+    font-size: 1rem;
+    span {
+      background-size: 8px auto;
+    }
   }
 }
