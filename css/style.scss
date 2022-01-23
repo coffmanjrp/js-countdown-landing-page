@@ -157,7 +157,7 @@ body {
       }
     }
     span::before {
-      content: attr(data-date);
+      content: attr(data-target);
       position: absolute;
       color: inherit;
       opacity: 0.5;

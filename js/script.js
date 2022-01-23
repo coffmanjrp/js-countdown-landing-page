@@ -33,9 +33,9 @@ const getTargetDate = () => {
   targetDayOfTheWeek.innerHTML = days[getDayOfTheWeek];
 
   // Set attributes for text reflect effect
-  targetDayText.setAttribute('data-date', targetDayText.textContent);
-  targetDay.setAttribute('data-date', targetDate);
-  targetDayOfTheWeek.setAttribute('data-date', days[getDayOfTheWeek]);
+  targetDayText.setAttribute('data-target', targetDayText.textContent);
+  targetDay.setAttribute('data-target', targetDate);
+  targetDayOfTheWeek.setAttribute('data-target', days[getDayOfTheWeek]);
 
   return new Date(targetDate);
 };
