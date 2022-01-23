@@ -7,9 +7,9 @@ const minute01 = document.getElementById('minute01');
 const minute02 = document.getElementById('minute02');
 const second01 = document.getElementById('second01');
 const second02 = document.getElementById('second02');
-const dateText = document.getElementById('date-text');
+const targetDayText = document.getElementById('target-day-text');
 const targetDay = document.getElementById('target-day');
-const dayOfTheWeek = document.getElementById('day-of-the-week');
+const targetDayOfTheWeek = document.getElementById('target-day-of-the-week');
 const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
 const getTargetDate = () => {
@@ -30,24 +30,24 @@ const getTargetDate = () => {
   const getDayOfTheWeek = new Date(targetDate).getDay();
 
   targetDay.innerHTML = targetDate;
-  dayOfTheWeek.innerHTML = days[getDayOfTheWeek];
+  targetDayOfTheWeek.innerHTML = days[getDayOfTheWeek];
 
   // Set attributes for text reflect effect
-  dateText.setAttribute('data-date', dateText.textContent);
+  targetDayText.setAttribute('data-date', targetDayText.textContent);
   targetDay.setAttribute('data-date', targetDate);
-  dayOfTheWeek.setAttribute('data-date', days[getDayOfTheWeek]);
+  targetDayOfTheWeek.setAttribute('data-date', days[getDayOfTheWeek]);
 
   return new Date(targetDate);
 };
 
-const getTimeElement = (el1, el2, time) => {
-  el1.innerHTML = !time.toString().split('')[1]
+const setDateToElement = (el1, el2, date) => {
+  el1.innerHTML = !date.toString().split('')[1]
     ? '0'
-    : time.toString().split('')[0];
+    : date.toString().split('')[0];
 
-  el2.innerHTML = !time.toString().split('')[1]
-    ? time.toString().split('')[0]
-    : time.toString().split('')[1];
+  el2.innerHTML = !date.toString().split('')[1]
+    ? date.toString().split('')[0]
+    : date.toString().split('')[1];
 };
 
 const setCountdown = () => {
@@ -59,10 +59,10 @@ const setCountdown = () => {
   const minutes = Math.floor((diff / 1000 / 60) % 60);
   const seconds = Math.floor((diff / 1000) % 60);
 
-  getTimeElement(day01, day02, days);
-  getTimeElement(hour01, hour02, hours);
-  getTimeElement(minute01, minute02, minutes);
-  getTimeElement(second01, second02, seconds);
+  setDateToElement(day01, day02, days);
+  setDateToElement(hour01, hour02, hours);
+  setDateToElement(minute01, minute02, minutes);
+  setDateToElement(second01, second02, seconds);
 };
 
 const getRandomCounter = (el) => {
@@ -92,8 +92,10 @@ const initialLoading = () => {
 const run = () => {
   initialLoading();
   getTargetDate();
+
   const randomCounter = setInterval(setRamdomCounter, 100);
   setTimeout(() => clearInterval(randomCounter), 2000);
+
   setInterval(setCountdown, 1000);
 };
 

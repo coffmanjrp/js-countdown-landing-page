@@ -119,7 +119,7 @@ body {
   }
 }
 
-.date {
+.target-date {
   position: relative;
   display: block;
   margin: 0 auto 3.75rem;
@@ -140,11 +140,11 @@ body {
         mask-mode: alpha;
       }
     }
-    .day-of-the-week {
+    .target-day-of-the-week {
       text-transform: uppercase;
     }
-    .day-of-the-week,
-    .date-text {
+    .target-day-of-the-week,
+    .target-day-text {
       font-size: 0.7em;
       &::before {
         top: 0.79em;
